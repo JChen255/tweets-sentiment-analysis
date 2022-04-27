@@ -37,11 +37,7 @@ dataset = dataset[['text','label']]
 # Shuffle the dataset
 dataset.sample(frac=1.0)
 # Replacing the values to ease understanding.
-#dataset['sentiment'] = dataset['sentiment'].replace(4,1)
-
-# Plotting the distribution for dataset.
-#ax = dataset.groupby('sentiment').count().plot(kind='bar', title='Distribution of data',legend=False)
-#ax.set_xticklabels(['Negative','Positive'], rotation=0)
+dataset['sentiment'] = dataset['sentiment'].replace(4,1)
 
 # Storing data in lists.
 text, sentiment = list(dataset['text']), list(dataset['label'])

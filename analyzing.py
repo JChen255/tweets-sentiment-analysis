@@ -85,5 +85,4 @@ russia_negative = data2.loc[data2['Labels'] == 0]['Text'].tolist()
 createwordcloud(russia_non_negative)
 createwordcloud(russia_negative)
 
-# Analyze the wrong prediction:
 

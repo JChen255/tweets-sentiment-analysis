@@ -50,29 +50,31 @@ if __name__ == "__main__":
     text = file["Text"]
     labels = file["label"]
 
-
+    # print out predictions for Logistic Regression Model
     pred1 = predict(vectoriser, LRmodel, text)[1]
     print(pred1)
+    # print out predictions for Logistic Regression Model
     pred2 = predict(vectoriser, BNBmodel, text)[1]
     print(pred2)
 
+    # Calculate specificity for Logistic Regression Model
     tn1, fp1, fn1, tp1 = confusion_matrix(labels, pred1).ravel()
     specificity1 = tn1 / (tn1 + fp1)
-
     print("specificity1",specificity1)
 
+    # Calculate specificity for Naive Bayes Model
     tn2, fp2, fn2, tp2 = confusion_matrix(labels, pred2).ravel()
     specificity2 = tn2 / (tn2 + fp2)
-
     print("specificity2", specificity2)
 
-
+    # Calculate metrics for Logistic Regression Model
     p1 = precision_score(labels, pred1)
     r1 = recall_score(labels, pred1)
     a1 = accuracy_score(labels, pred1)
     f1 = f1_score(labels, pred1)
     print(f"Sklearn scores for Logistic Regression Model: precision {p1:0.03}\trecall {r1:0.03}\taccuracy{a1:0.03}\tf1{f1:0.03}")
 
+    # Calculate metrics for Naive Bayes Model
     p2 = precision_score(labels, pred2)
     r2 = recall_score(labels, pred2)
     a2 = accuracy_score(labels, pred2)
