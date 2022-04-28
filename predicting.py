@@ -42,7 +42,7 @@ def predict(vectoriser, model, text):
 
 
 if __name__ == "__main__":
-    # Loading the models from pickle files.
+    # Loading the models from pickle files
     vectorizer = '140_vectoriser-ngram.pickle'
     BNB = '140_BNB.pickle'
     LR = '140_LR.pickle'
