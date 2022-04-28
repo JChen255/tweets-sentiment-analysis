@@ -5,20 +5,20 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 from sklearn.metrics import confusion_matrix
 
 
-def load_models():
+def load_models(vectorizer,BNB,LR):
 
     # Load the vectoriser.
-    file = open('140_vectoriser-ngram.pickle', 'rb')
+    file = open(vectorizer, 'rb')
     vectoriser = pickle.load(file)
     file.close()
 
     # Load the BNB Model.
-    file = open('140_BNB.pickle', 'rb')
+    file = open(BNB, 'rb')
     BNBmodel = pickle.load(file)
     file.close()
 
     # Load the LR Model.
-    file = open('140_LR.pickle', 'rb')
+    file = open(LR, 'rb')
     LRmodel = pickle.load(file)
     file.close()
 
@@ -42,7 +42,11 @@ def predict(vectoriser, model, text):
 
 
 if __name__ == "__main__":
-    # Loading the models.
+    # Loading the models from pickle files.
+    vectorizer = '140_vectoriser-ngram.pickle'
+    BNB = '140_BNB.pickle'
+    LR = '140_LR.pickle'
+    load_models(vectorizer, BNB, LR)
     vectoriser, LRmodel, BNBmodel = load_models()
 
     # Text to classify should be in a list.

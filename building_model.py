@@ -36,8 +36,10 @@ dataset = dataset[['text','label']]
 
 # Shuffle the dataset
 dataset.sample(frac=1.0)
-# Replacing the values to ease understanding.
-dataset['sentiment'] = dataset['sentiment'].replace(4,1)
+
+# In 140 dataset, the negative sentiment is labeled as 4,
+# Replacing the values in the 140 dataset to ease understanding.
+#dataset['sentiment'] = dataset['sentiment'].replace(4,1)
 
 # Storing data in lists.
 text, sentiment = list(dataset['text']), list(dataset['label'])
