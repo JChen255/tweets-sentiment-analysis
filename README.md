@@ -11,7 +11,7 @@ Five training datasets were used to train the classification model, including [s
 [Russia invade tweets]: https://www.kaggle.com/datasets/towhidultonmoy/russia-vs-ukraine-tweets-datasetdaily-updated
 
 
-# How to use the codes? / usage example
+# How to use the codes? - usage example
 
 Introduction: There are five .py files: preprocess.py, building_model.py, evaluatemodel.py, predicting.py, and analyzing.py. The preprocess.py and evaluate.py are two helper files for builing_model.py and predicting.py. Finally, the analyzing.py is for analyzing our dataset.
 building_model.py:
@@ -23,3 +23,11 @@ First, download the vectorizer and models from pickle files. Second, download th
 
 How to use the [analyzing.py]:
 The file has two functions. Firstly, it can create the wordnet plot and list out the top negative and non-negative words in a few datasets. Secondly, it can label the dataset using VADER models.
+
+# Writeup
+
+1. Models: in this task, overall Logistic Regression performed better than Naive Bayes. In the future, more types of Naive Bayes, such as Multinomial, could be explored. 
+2. Data size: in this task, larger training dataset performed slightly better than smaller dataset.To better understand the relationship between corpus size and performance, we could try out more training datasets from the same topic but different corpus sizes.
+3. Topic:  In the future, more datasets of different topics could be explored, especially the tweet content regarding other controversial political figures. 
+4. Label: The standard of negative and non-negative content may vary from person to person. A better way to label the testing dataset could be to involve more people labeling the data.
+
