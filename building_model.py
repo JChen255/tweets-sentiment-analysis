@@ -73,14 +73,14 @@ LRmodel.fit(X_train, y_train)
 model_Evaluate(LRmodel,X_test,y_test)
 
 #Saving the Models
-file = open('vectoriser-ngram-(1,2)_apple.pickle','wb')
+file = open('apple_vectoriser-ngram.pickle','wb')
 pickle.dump(vectoriser, file)
 file.close()
 
-file = open('Sentiment-LR_apple.pickle','wb')
+file = open('apple_LR.pickle','wb')
 pickle.dump(LRmodel, file)
 file.close()
 
-file = open('Sentiment-BNB_apple.pickle','wb')
+file = open('apple_BNB.pickle','wb')
 pickle.dump(BNBmodel, file)
 file.close()

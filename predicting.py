@@ -1,5 +1,6 @@
 import pickle
 import pandas as pd
+import argparse
 from preprocess import preprocess
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -42,15 +43,25 @@ def predict(vectoriser, model, text):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--vectoriser_ngram", type=str, default="apple_vectoriser-ngram.pickle",
+                        help = "download the models from pickle files.")
+    parser.add_argument("--BNB_Model", type=str, default="apple_BNB.pickle",
+                        help = "download the models from pickle files.")
+    parser.add_argument("--LR_Model", type=str, default="apple_LR.pickle",
+                        help = "download the models from pickle files.")
+    parser.add_argument("--putin_test_dataset", type=str, default="Putin tweets.csv",
+                        help = "download the testing dataset.")
+    args = parser.parse_args()
+
     # Loading the models from pickle files
-    vectorizer = '140_vectoriser-ngram.pickle'
-    BNB = '140_BNB.pickle'
-    LR = '140_LR.pickle'
-    load_models(vectorizer, BNB, LR)
-    vectoriser, LRmodel, BNBmodel = load_models()
+    vectorizer = args.vectoriser_ngram
+    BNB = args.BNB_Model
+    LR = args.LR_Model
+    vectoriser, LRmodel, BNBmodel = load_models(vectorizer, BNB, LR)
 
     # Text to classify should be in a list.
-    file = pd.read_csv("putin_test_dataset.csv")
+    file = pd.read_csv(args.putin_test_dataset)
     text = file["Text"]
     labels = file["label"]
 
