@@ -36,12 +36,10 @@ dataset = dataset[['text','label']]
 
 # Shuffle the dataset
 dataset.sample(frac=1.0)
-# Replacing the values to ease understanding.
-#dataset['sentiment'] = dataset['sentiment'].replace(4,1)
 
-# Plotting the distribution for dataset.
-#ax = dataset.groupby('sentiment').count().plot(kind='bar', title='Distribution of data',legend=False)
-#ax.set_xticklabels(['Negative','Positive'], rotation=0)
+# In 140 dataset, the negative sentiment is labeled as 4,
+# Replacing the values in the 140 dataset to ease understanding.
+#dataset['sentiment'] = dataset['sentiment'].replace(4,1)
 
 # Storing data in lists.
 text, sentiment = list(dataset['text']), list(dataset['label'])
@@ -75,14 +73,14 @@ LRmodel.fit(X_train, y_train)
 model_Evaluate(LRmodel,X_test,y_test)
 
 #Saving the Models
-file = open('vectoriser-ngram-(1,2)_apple.pickle','wb')
+file = open('apple_vectoriser-ngram.pickle','wb')
 pickle.dump(vectoriser, file)
 file.close()
 
-file = open('Sentiment-LR_apple.pickle','wb')
+file = open('apple_LR.pickle','wb')
 pickle.dump(LRmodel, file)
 file.close()
 
-file = open('Sentiment-BNB_apple.pickle','wb')
+file = open('apple_BNB.pickle','wb')
 pickle.dump(BNBmodel, file)
 file.close()
